@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>业务逻辑 - 张周文</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="表单验证通过之后：12345if (!err) &#1...">
+  <meta name="author" content="张周文">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/bg.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">业务逻辑</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">业务逻辑</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>11204</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h4 id="表单验证通过之后："><a href="#表单验证通过之后：" class="headerlink" title="表单验证通过之后："></a>表单验证通过之后：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!err) &#123;</span><br><span class="line">  <span class="comment">// 调用api接口</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  message.error(<span class="string">&quot;请输入正确的内容&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="某个元素居中对齐"><a href="#某个元素居中对齐" class="headerlink" title="某个元素居中对齐"></a>某个元素居中对齐</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.login-form &#123;</span><br><span class="line">  width:400px;</span><br><span class="line">  position:relative;</span><br><span class="line">  left:<span class="number">50</span>%;</span><br><span class="line">  top:<span class="number">50</span>%;</span><br><span class="line">  tramsform:translate3d(-<span class="number">50</span>%,-<span class="number">50</span>%,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="登录逻辑"><a href="#登录逻辑" class="headerlink" title="登录逻辑"></a>登录逻辑</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">当用户点击登录之后，肯定是要调服务端接口的，判断是否登录成功，成功则把对应的token存到本地，后面根据token值判断用户是否登录</span><br><span class="line">utils.js</span><br><span class="line">  auth.js</span><br><span class="line">    <span class="comment">// 获取token</span></span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getToken</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 设置token</span></span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">setToken</span>(<span class="params">token</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;token&#x27;</span>,token)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 退出登录清楚token</span></span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">clearToken</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">localStorage</span>.removeItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 判断是否登录</span></span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">isLogin</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;token&#x27;</span>))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在所有访问<span class="string">&#x27;/admin&#x27;</span>的时候，先判断登录与否</span><br><span class="line">isLogin()?&lt;Frame&gt;</span><br><span class="line">            &lt;Switch&gt;&#123;adminRoutes.map(<span class="function"><span class="params">route</span>=&gt;</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="xml">&lt;Route</span></span><br><span class="line"><span class="xml">              key=&#123;route.path&#125;</span></span><br><span class="line"><span class="xml">              path=&#123;route.path&#125;</span></span><br><span class="line"><span class="xml">              exact=&#123;route.exact&#125;</span></span><br><span class="line"><span class="xml">              render=&#123;routeProps=&gt;&#123;</span></span><br><span class="line"><span class="xml">                return <span class="tag">&lt;<span class="name">route.component</span> &#123;<span class="attr">...routeProps</span>&#125;/&gt;</span></span></span><br><span class="line"><span class="xml">              &#125;&#125;</span></span><br><span class="line"><span class="xml">            &gt;</span></span><br><span class="line"><span class="xml">            &#125;)&#125;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Redirect</span> <span class="attr">to</span>=<span class="string">&#123;adminRoutes[0].path&#125;</span> <span class="attr">from</span>=<span class="string">&#x27;/admin&#x27;</span> /&gt;</span></span></span><br><span class="line">            &lt;Redirect to=&#x27;/404&#x27;&gt;</span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">Switch</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">Frame</span>&gt;</span></span>:<span class="xml"><span class="tag">&lt;<span class="name">Redirect</span> <span class="attr">to</span>=<span class="string">&#x27;/login&#x27;</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">点击登录简单判断</span></span><br><span class="line"><span class="xml">if(!err)&#123;</span></span><br><span class="line"><span class="xml">  setToken(values.username)</span></span><br><span class="line"><span class="xml">  props.history.push(&#x27;/admin&#x27;) // 登录成功跳转到管理后台首页</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">实操：</span></span><br><span class="line"><span class="xml">if(!err)&#123;</span></span><br><span class="line"><span class="xml">  loginApi(&#123;</span></span><br><span class="line"><span class="xml">    userName:value.username,</span></span><br><span class="line"><span class="xml">    password:value.password</span></span><br><span class="line"><span class="xml">  &#125;).then(res=&gt;&#123;</span></span><br><span class="line"><span class="xml">    if(res.code === &#x27;success&#x27;)&#123;</span></span><br><span class="line"><span class="xml">      message.success(&#x27;登录成功&#x27;);</span></span><br><span class="line"><span class="xml">      setToken(res.token);</span></span><br><span class="line"><span class="xml">      props.history.push(&#x27;/admin&#x27;)</span></span><br><span class="line"><span class="xml">    &#125;else&#123;</span></span><br><span class="line"><span class="xml">      message.info(res.message)</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml">  &#125;).catch(err=&gt;&#123;</span></span><br><span class="line"><span class="xml">    message.error(&#x27;用户不存在&#x27;)</span></span><br><span class="line"><span class="xml">  &#125;)</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="管理后台头像处理"><a href="#管理后台头像处理" class="headerlink" title="管理后台头像处理"></a>管理后台头像处理</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> popMenu = &#123;</span><br><span class="line">  &lt;Menu onClick=&#123;<span class="function"><span class="params">p</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p.key===<span class="string">&#x27;logOut&#x27;</span>)&#123;</span><br><span class="line">      clearToken();</span><br><span class="line">      props.history.push(<span class="string">&#x27;/login&#x27;</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      message.info(p.key)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">    &lt;Menu.Item key=<span class="string">&#x27;notice&#x27;</span>&gt;通知中心&lt;/Menu.Item&gt;</span><br><span class="line">    &lt;Menu.Item key=<span class="string">&#x27;setting&#x27;</span>&gt;设置&lt;/Menu.Item&gt;</span><br><span class="line">    &lt;Menu.Item key=<span class="string">&#x27;logOut&#x27;</span>&gt;退出&lt;/Menu.Item&gt;</span><br><span class="line">  &lt;/Menu&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DOM:</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;Dropdown overlay=&#123;popMenu&#125;&gt;</span><br><span class="line">    &lt;Avatar&gt;U&lt;/Avatar&gt;</span><br><span class="line">    &lt;span style=&#123;&#123;&#125;&#125;&gt;超级管理员&lt;/span&gt;</span><br><span class="line">    &lt;Icon type=<span class="string">&#x27;down&#x27;</span>&gt;</span><br><span class="line">  &lt;/Dropdown&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="管理后台所有接口调用都要传递一个-token-值，在请求头里面"><a href="#管理后台所有接口调用都要传递一个-token-值，在请求头里面" class="headerlink" title="管理后台所有接口调用都要传递一个 token 值，在请求头里面"></a>管理后台所有接口调用都要传递一个 token 值，在请求头里面</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">token在用户第一次登录的时候会返回给客户端，验证用户是否有权限访问我们接口数据</span><br></pre></td></tr></table></figure>
+<h4 id="封装请求"><a href="#封装请求" class="headerlink" title="封装请求"></a>封装请求</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">request.js;</span><br><span class="line"><span class="comment">// 请求拦截器拦截请求增加请求头</span></span><br><span class="line">config.headers[<span class="string">&quot;authorization&quot;</span>] = <span class="string">&quot;Bearer &quot;</span> + getToken();</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">url, params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(url, &#123;</span><br><span class="line">    params,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">post</span>(<span class="params">url, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.post(url, data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">put</span>(<span class="params">url, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.put(url, data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">del</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.delete(url);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">service.js;</span><br><span class="line"><span class="comment">// 登录接口</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">loginApi</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> post(<span class="string">&quot;/路径&quot;</span>, user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 商品接口</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">listApi</span>(<span class="params">page = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> get(<span class="string">&quot;/&quot;</span>, &#123; page, <span class="attr">per</span>: <span class="number">2</span> &#125;); <span class="comment">// 每页显示两条</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createApi</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> post(<span class="string">&quot;/&quot;</span>, data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">modifyOne</span>(<span class="params">id, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> put(<span class="string">`/<span class="subst">$&#123;id&#125;</span>`</span>, data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">deleteOne</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> del(<span class="string">`/<span class="subst">$&#123;id&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="表格数据处理"><a href="#表格数据处理" class="headerlink" title="表格数据处理"></a>表格数据处理</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  title:<span class="string">&#x27;序号&#x27;</span>,</span><br><span class="line">  key:<span class="string">&#x27;_id&#x27;</span>,<span class="comment">// 表格返回的数据的唯一值</span></span><br><span class="line">  wigth:<span class="number">80</span>,</span><br><span class="line">  align:<span class="string">&#x27;center&#x27;</span>,</span><br><span class="line">  render:<span class="function">(<span class="params">txt,record,index</span>)=&gt;</span>index+<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rowKey=<span class="string">&#x27;_id&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> loadData = <span class="function"><span class="params">page</span>=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;Table</span><br><span class="line">  pagination=&#123;&#123;</span><br><span class="line">    total,</span><br><span class="line">    defaultPageSize:<span class="number">2</span> <span class="comment">// 默认10条(total跟pageSize结合就可以实现分页效果了)</span></span><br><span class="line">    onChange:loadData <span class="comment">// 点击分页</span></span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="一般表单校验并提交逻辑"><a href="#一般表单校验并提交逻辑" class="headerlink" title="一般表单校验并提交逻辑"></a>一般表单校验并提交逻辑</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接口在提交成功后，可以做路由跳转</span></span><br><span class="line"><span class="comment">// 新增</span></span><br><span class="line">createApi(values).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res);</span><br><span class="line">  props.history.push(<span class="string">&quot;/admin/products&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编辑</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getOneById</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> get(<span class="string">`/<span class="subst">$&#123;id&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 列表页</span></span><br><span class="line">&lt;Button</span><br><span class="line">  onClick=&#123;<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    props.history.push(<span class="string">`/admin/products/edit/<span class="subst">$&#123;record._id&#125;</span>`</span>);</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">  修改</span><br><span class="line">&lt;/Button&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编辑页</span></span><br><span class="line">props.match.params.id拿路由参数;存在的话表示编辑，否则表示新增</span><br><span class="line"></span><br><span class="line">useEffect(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(props.match.params.id)&#123;</span><br><span class="line">    getOneById(props.match.params.id).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      setCurrentData(res)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,[])</span><br><span class="line">拿到值（currentData）之后设置表单的默认值</span><br><span class="line"></span><br><span class="line"><span class="comment">// 表单验证成功之后，判断是新增还是修改然后调用不同的接口</span></span><br><span class="line">values为表单验证通过之后的对象数据</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(props.match.params.id)&#123;</span><br><span class="line">  modifyOne(props.match.params.id,values).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    props.history.push(<span class="string">&#x27;/admin/products&#x27;</span>)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  createApi(values).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">    props.history.push(<span class="string">&quot;/admin/products&quot;</span>);</span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="删除列表页的某一行"><a href="#删除列表页的某一行" class="headerlink" title="删除列表页的某一行"></a>删除列表页的某一行</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;Popconfirm</span><br><span class="line">  title=<span class="string">&quot;确定删除？&quot;</span></span><br><span class="line">  onCancel=&#123;<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&quot;取消删除&quot;</span>)&#125;</span><br><span class="line">  onConfirm=&#123;<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    delOne(record._id).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 删除成功之后重新加载数据</span></span><br><span class="line">      loadData(<span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">  &lt;Button type=<span class="string">&quot;danger&quot;</span>&gt;删除&lt;/Button&gt;</span><br><span class="line">&lt;/Popconfirm&gt;</span><br><span class="line">&lt;Buuton</span><br><span class="line">  onClick=&#123;<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 修改后台数据的在售状态</span></span><br><span class="line">    modifyOne(record._id,&#123;<span class="attr">onSale</span>:!record.onSale&#125;).thne(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      loadData(<span class="number">1</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&gt;&#123;record.onSale?<span class="string">&#x27;下架&#x27;</span>:<span class="string">&#x27;上架&#x27;</span>&#125;&lt;/Buuton&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="表格一行的-className"><a href="#表格一行的-className" class="headerlink" title="表格一行的 className"></a>表格一行的 className</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Table rowClassName=&#123;<span class="function">(<span class="params">record</span>) =&gt;</span> (record.onSale ? <span class="string">&quot;&quot;</span> : <span class="string">&quot;row-bg&quot;</span>)&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="解决在点击-—第二页页码—页码显示第二页-但是数据是第一页的-bug"><a href="#解决在点击-—第二页页码—页码显示第二页-但是数据是第一页的-bug" class="headerlink" title="解决在点击 —第二页页码—页码显示第二页 但是数据是第一页的 bug"></a>解决在点击 —第二页页码—页码显示第二页 但是数据是第一页的 bug</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [currentPage,setCurrentPage] = useState(<span class="number">1</span>) <span class="comment">// 保存页的状态</span></span><br><span class="line"></span><br><span class="line">点击页码加载数据的时候，保存一下当前的页码（setCurrentPage）</span><br><span class="line">在哪一页删除，重新加载数据的时候加载currentPage页的数据</span><br><span class="line">在哪一页上下架，加载哪一页currentPage页的数据</span><br></pre></td></tr></table></figure>
+<h4 id="各文件都要用到的变量"><a href="#各文件都要用到的变量" class="headerlink" title="各文件都要用到的变量"></a>各文件都要用到的变量</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">utils &gt; cnfig.js;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> serverUrl = <span class="string">&quot;http://localhost:3009&quot;</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="图片上传功能-最后显示"><a href="#图片上传功能-最后显示" class="headerlink" title="图片上传功能(最后显示)"></a>图片上传功能(最后显示)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [imageUrl, setImageUrl] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> [loading, setLoading] = useState(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uploadButton = (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;loading ? <span class="xml"><span class="tag">&lt;<span class="name">LoadingOutlined</span> /&gt;</span></span> : <span class="xml"><span class="tag">&lt;<span class="name">PlusOutlined</span> /&gt;</span></span>&#125;</span><br><span class="line">    &lt;div style=&#123;&#123; <span class="attr">marginTop</span>: <span class="number">8</span> &#125;&#125;&gt;Upload&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">handleChange = <span class="function"><span class="params">info</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (info.file.status === <span class="string">&#x27;uploading&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 上传中</span></span><br><span class="line">    setLoading(<span class="literal">true</span>)</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (info.file.status === <span class="string">&#x27;done&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 上传成功</span></span><br><span class="line">    setLoading(<span class="literal">false</span>)</span><br><span class="line">    setImageUrl(info.file.response.info) <span class="comment">// &#x27;/uploads/20200219/13612261897.jpg&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&lt;Upload</span><br><span class="line">  name=<span class="string">&quot;file&quot;</span> <span class="comment">// 后台给的字段</span></span><br><span class="line">  listType=<span class="string">&quot;picture-card&quot;</span></span><br><span class="line">  className=<span class="string">&quot;avatar-uploader&quot;</span></span><br><span class="line">  showUploadList=&#123;<span class="literal">false</span>&#125;</span><br><span class="line">  action=&#123;serverUrl + <span class="string">&#x27;/api/v1/common/file_upload&#x27;</span>&#125; <span class="comment">// 上传目标的服务器地址</span></span><br><span class="line">  onChange=&#123;<span class="function">(<span class="params">info</span>) =&gt;</span> handleChange(info)&#125; <span class="comment">// info 上传过程的信息</span></span><br><span class="line">&gt;</span><br><span class="line">  &#123;imageUrl ? <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;serverUrl+imageUrl&#125;</span> <span class="attr">alt</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">style</span>=<span class="string">&#123;&#123;width:100%&#125;&#125;/</span>&gt;</span></span> : uploadButton&#125;</span><br><span class="line">                        服务器路劲加上传成功之后图片的路径</span><br><span class="line">&lt;/Upload&gt;;</span><br></pre></td></tr></table></figure>
+<h4 id="图片数据保存起来"><a href="#图片数据保存起来" class="headerlink" title="图片数据保存起来"></a>图片数据保存起来</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击新建的时候传给后台</span></span><br><span class="line">createApi(&#123; ...values, <span class="attr">coverImg</span>: imageUrl &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">    props.history.push(<span class="string">&quot;/admin/products&quot;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在列表页面新增一列显示图片</span></span><br><span class="line">&#123;</span><br><span class="line">  title:<span class="string">&#x27;主图&#x27;</span>,</span><br><span class="line">  dataIndex:<span class="string">&#x27;coverImg&#x27;</span>,</span><br><span class="line">  render:<span class="function">(<span class="params">text,record</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> record.coverImg?<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;serverUrl</span> + <span class="attr">record.coverImg</span>&#125; <span class="attr">alt</span>=<span class="string">&#123;record.name&#125;</span> <span class="attr">style</span>=<span class="string">&#123;&#123;width:</span>&#x27;<span class="attr">120px</span>&#x27;&#125;&#125;/&gt;</span></span>:<span class="string">&#x27;暂未上传&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="点击编辑的时候图片显示出来"><a href="#点击编辑的时候图片显示出来" class="headerlink" title="点击编辑的时候图片显示出来"></a>点击编辑的时候图片显示出来</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">在编辑页加载数据的时候，保存一下图片</span><br><span class="line"></span><br><span class="line">useEffect(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(props.match.params.id)&#123;</span><br><span class="line">    getOneById(props.match.params.id).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      setCurrentData(res)</span><br><span class="line">      setImageUrl(res.coverImg) <span class="comment">// 编辑进来设置imageUrl</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,[])</span><br><span class="line"></span><br><span class="line">在编辑---保存的时候重新提交更改的图片数据</span><br><span class="line">modifyOne(props.match.params.id,&#123;...values,<span class="attr">coverImg</span>:imageUrl).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123; <span class="comment">// 新增imageUrl</span></span><br><span class="line">    props.history.push(<span class="string">&#x27;/admin/products&#x27;</span>)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="新增通知中心"><a href="#新增通知中心" class="headerlink" title="新增通知中心"></a>新增通知中心</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置路由文件</span></span><br><span class="line">&#123;</span><br><span class="line">  path:<span class="string">&#x27;/admin/notice&#x27;</span>,</span><br><span class="line">  component:Notice,</span><br><span class="line">  isShow:<span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> popMenu = &#123;</span><br><span class="line">  &lt;Menu onClick=&#123;<span class="function"><span class="params">p</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p.key===<span class="string">&#x27;logOut&#x27;</span>)&#123;</span><br><span class="line">      clearToken();</span><br><span class="line">      props.history.push(<span class="string">&#x27;/login&#x27;</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">// message.info(p.key)</span></span><br><span class="line">      <span class="keyword">if</span>(p.key===<span class="string">&#x27;notice&#x27;</span>)&#123;</span><br><span class="line">        props.history.push(<span class="string">&#x27;/admin/notice&#x27;</span>) <span class="comment">// +++点击跳转</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">    &lt;Menu.Item key=<span class="string">&#x27;notice&#x27;</span>&gt;通知中心&lt;/Menu.Item&gt;</span><br><span class="line">    &lt;Menu.Item key=<span class="string">&#x27;setting&#x27;</span>&gt;设置&lt;/Menu.Item&gt;</span><br><span class="line">    &lt;Menu.Item key=<span class="string">&#x27;logOut&#x27;</span>&gt;退出&lt;/Menu.Item&gt;</span><br><span class="line">  &lt;/Menu&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;Card title=<span class="string">&quot;通知中心&quot;</span> extra=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Button</span>&gt;</span>全部已读<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span>&#125;&gt;</span><br><span class="line">  &lt;List</span><br><span class="line">    bordered</span><br><span class="line">    dataSource=&#123;data&#125;</span><br><span class="line">    renderItem=&#123;<span class="function"><span class="params">item</span>=&gt;</span>(</span><br><span class="line">      &lt;List.Item&gt;</span><br><span class="line">        &#123;item&#125;</span><br><span class="line">        &lt;Button&gt;已读&lt;/Button&gt;</span><br><span class="line">      &lt;/List.Item&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">  &gt;&lt;/&gt;</span><br><span class="line">&lt;/Card&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有未读信息，在昵称后面显示小红点</span></span><br><span class="line">&lt;Dropdown overlay=&#123;popMenu&#125;&gt;</span><br><span class="line">  &lt;Avatar&gt;U&lt;/Avatar&gt;</span><br><span class="line">  &lt;Badge dot&gt;</span><br><span class="line">    &lt;span style=&#123;&#123;<span class="attr">color</span>:<span class="string">&#x27;#fff&#x27;</span>&#125;&#125;&gt;超级管理员&lt;/span&gt;</span><br><span class="line">  &lt;/Badge&gt;</span><br><span class="line">  &lt;Icon type=<span class="string">&#x27;down&#x27;</span>&gt;</span><br><span class="line">&lt;/Dropdown&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="跨组件传参"><a href="#跨组件传参" class="headerlink" title="跨组件传参"></a>跨组件传参</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">redux, react - redux, redux - thunk;</span><br><span class="line"></span><br><span class="line">store.js;</span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">&quot;redux&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> noticeReducer = <span class="function"><span class="keyword">function</span> (<span class="params">state = &#123; isAllRead: <span class="literal">false</span> &#125;, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;ALL_READ&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, <span class="attr">isAllRead</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> store = createStore(noticeReducer);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store;</span><br><span class="line"></span><br><span class="line">index.js;</span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>; <span class="comment">// 给整个应用提供仓库</span></span><br><span class="line">&lt;Provider store=&#123;store&#125;&gt;&lt;/Provider&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改变状态组件</span></span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line">&lt;Button onClick=&#123;<span class="function">() =&gt;</span> props.dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;ALL_READ&quot;</span> &#125;)&#125;&gt;全部已读&lt;/Button&gt;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(<span class="function">(<span class="params">state</span>) =&gt;</span> state)(Notice);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用状态组件</span></span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line">dot=&#123;!props.isAllRead&#125; <span class="comment">// 小红点的显示与否判断</span></span><br><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state</span>) =&gt;</span> state;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(withRouter(Frame));</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>张周文</li>
+    <li><strong>本文链接：</strong><a href="http://dachuizi-6.github.io/2021/01/26/08%E3%80%81react-shop-admin%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/index.html" title="http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;26&#x2F;08%E3%80%81react-shop-admin%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91&#x2F;index.html">http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;26&#x2F;08%E3%80%81react-shop-admin%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/" rel="tag">业务逻辑</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/01/30/11%E3%80%81redux%E4%BD%BF%E7%94%A8/"><i class="iconfont iconleft"></i>react的redux</a>
+    <a></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/izhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

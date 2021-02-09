@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>react的redux - 张周文</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="123456789101112131415161718...">
+  <meta name="author" content="张周文">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/bg.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">react的redux</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">react的redux</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 30, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2931</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">store</span><br><span class="line">  一、index.js</span><br><span class="line">    <span class="keyword">import</span> &#123;createStore,combineReducers,compose,applyMiddleware&#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line">    <span class="keyword">import</span> noticeReducer <span class="keyword">from</span> <span class="string">&#x27;./reducers/noticeReducer&#x27;</span></span><br><span class="line">    <span class="keyword">import</span> productsReducer <span class="keyword">from</span> <span class="string">&#x27;./reducers/productsReducer&#x27;</span></span><br><span class="line">    <span class="keyword">const</span> rootReducer = combineReducers(&#123;</span><br><span class="line">      noticeReducer,</span><br><span class="line">      productsReducer</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> createStore(rootReducer,compose(applyMiddleware(...[thunk])))</span><br><span class="line"></span><br><span class="line">  二、reducers</span><br><span class="line">    noticeReducer.js</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> noticeReducer = <span class="function"><span class="keyword">function</span> (<span class="params">state = &#123; isAllRead: <span class="literal">false</span> &#125;, action</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;ALL_READ&quot;</span>:</span><br><span class="line">          <span class="keyword">return</span> &#123; ...state, <span class="attr">isAllRead</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">          <span class="keyword">return</span> state;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    productsReducer.js</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> productsReducer = <span class="function"><span class="keyword">function</span>(<span class="params">state=&#123;list:[],page:<span class="number">1</span>,total:<span class="number">0</span>&#125;,action</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">switch</span>(action.type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;PRODUCT_LOADED&#x27;</span>:</span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            ...state,</span><br><span class="line">            list:action.data.products,</span><br><span class="line">            page:action.data.page,  <span class="comment">// 新增一个page属性</span></span><br><span class="line">            total:action.data.totalCount&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  三、actions</span><br><span class="line">    products.js</span><br><span class="line">      <span class="keyword">export</span> <span class="keyword">const</span> loadProduct = <span class="function"><span class="params">payload</span>=&gt;</span> <span class="keyword">async</span> dispatch=&gt;&#123;  <span class="comment">// payload是异步action的参数</span></span><br><span class="line">        <span class="keyword">const</span> res = <span class="keyword">await</span> listApi( payload.page ) <span class="comment">// 这个接口默认需要页码</span></span><br><span class="line">        <span class="comment">// 当异步操作完成之后通过dispatch触发reducer改变数据</span></span><br><span class="line">        dispatch(&#123;</span><br><span class="line">          type:<span class="string">&#x27;PRODUCT_LOADED&#x27;</span>,</span><br><span class="line">          data:&#123;</span><br><span class="line">            ...res,</span><br><span class="line">            page:payload.page</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在使用仓库数据的地方要注意mapStateToProps返回的值</span></span><br><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function"><span class="params">state</span>=&gt;</span>state.noticeReducer</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(Frame)</span><br></pre></td></tr></table></figure>
+<h4 id="在列表页"><a href="#在列表页" class="headerlink" title="在列表页"></a>在列表页</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line"><span class="comment">// 导入异步action</span></span><br><span class="line"><span class="keyword">import</span> &#123; loadProduct &#125; <span class="keyword">from</span> <span class="string">&quot;路径&quot;</span>;</span><br><span class="line"></span><br><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  props.dispatch(</span><br><span class="line">    loadProduct(&#123;</span><br><span class="line">      page: <span class="number">1</span>, <span class="comment">// 第一次默认为1</span></span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;, []);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只映射productsReducer里面的数据</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(<span class="function">(<span class="params">state</span>) =&gt;</span> state.productsReducer)(List);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数据加载完之后从仓库中取数据</span></span><br><span class="line"><span class="keyword">const</span> &#123; list, page, total &#125; = props;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把以前的listApi().then().catch()代码删掉</span></span><br><span class="line"><span class="comment">// 点击分页的loadData也删掉</span></span><br><span class="line"><span class="keyword">const</span> loadData = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  props.dispatch(</span><br><span class="line">    loadProduct(&#123;</span><br><span class="line">      page: page, <span class="comment">// 点击删除或者上下架的时候传递仓库里面的页码------------具体位置直接吊loadData就好了，不需要在传递参数了</span></span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  ---listApi().then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  ---  setDataSource(res.products);</span><br><span class="line">  ---  setTotal(res.totalCount);</span><br><span class="line">  ---  setCurrentPage(page);</span><br><span class="line">  ---&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&lt;Table</span><br><span class="line">  rowKey=<span class="string">&#x27;_id&#x27;</span></span><br><span class="line">  pagination=&#123;&#123;total,<span class="attr">defaultPageSize</span>:<span class="number">2</span>,<span class="attr">onChange</span>:<span class="function">(<span class="params">p</span>)=&gt;</span>&#123;</span><br><span class="line">    props.dispatch(</span><br><span class="line">      loadProduct(&#123;</span><br><span class="line">        page: p, <span class="comment">// 点击页码更新仓库里面的页码</span></span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">  &#125;&#125;&#125;</span><br><span class="line">  columns=&#123;columns&#125;</span><br><span class="line">  bordered</span><br><span class="line">  dataSource=&#123;list&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>张周文</li>
+    <li><strong>本文链接：</strong><a href="http://dachuizi-6.github.io/2021/01/30/11%E3%80%81redux%E4%BD%BF%E7%94%A8/index.html" title="http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;11%E3%80%81redux%E4%BD%BF%E7%94%A8&#x2F;index.html">http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;11%E3%80%81redux%E4%BD%BF%E7%94%A8&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/01/30/10%E3%80%81react%E4%B9%8B%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/"><i class="iconfont iconleft"></i>react富文本编辑器</a>
+    <a href="/2021/01/26/08%E3%80%81react-shop-admin%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91/">业务逻辑<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/izhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

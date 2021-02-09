@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的常用js函数 - 张周文</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="一、后台没做分页，前端分批显示123456789101...">
+  <meta name="author" content="张周文">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/bg.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">我的常用js函数</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">我的常用js函数</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 30, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6609</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h4 id="一、后台没做分页，前端分批显示"><a href="#一、后台没做分页，前端分批显示" class="headerlink" title="一、后台没做分页，前端分批显示"></a>一、后台没做分页，前端分批显示</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">list: [],    <span class="comment">//存放数据容器</span></span><br><span class="line">page: <span class="number">0</span>,    <span class="comment">//第一条数据</span></span><br><span class="line">number: <span class="number">5</span>    <span class="comment">//第五条数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面默认加载前五条数据</span></span><br><span class="line">axios.get(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res);</span><br><span class="line">  <span class="keyword">if</span>(res.status == <span class="string">&quot;200&quot;</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.data.data);</span><br><span class="line">    <span class="built_in">this</span>.list = res.data.data.slice(<span class="built_in">this</span>.page, <span class="built_in">this</span>.number);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 点击按钮加载更多</span></span><br><span class="line"><span class="function"><span class="title">onLoad</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//累加5条数据</span></span><br><span class="line">  <span class="built_in">this</span>.page = <span class="built_in">this</span>.page + <span class="number">5</span>;</span><br><span class="line">  <span class="built_in">this</span>.number = <span class="built_in">this</span>.number + <span class="number">5</span>;</span><br><span class="line">  <span class="comment">// 截取后返回的是一个数组对象</span></span><br><span class="line">  axios.get(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">    <span class="keyword">if</span>(res.status == <span class="string">&quot;200&quot;</span>)&#123;</span><br><span class="line">      <span class="keyword">let</span> data = res.data.data.slice(<span class="built_in">this</span>.page, <span class="built_in">this</span>.number);</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">      data.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//因此只需要遍历里面的对象 因为数组push不进数组 push对象到数组里即可</span></span><br><span class="line">        <span class="built_in">console</span>.log(item);</span><br><span class="line">        <span class="built_in">this</span>.list.push(item);</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="comment">//咳咳 用push方法有点麻烦 竟然返回数组直接用concat()拼接就可以了 emmm... 而且在小程序里上拉加载push数据不会叠加数据~</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 优化：可以一次性把请求回来的数据存起来，点击加载更多按钮的时候就不用重新请求了</span></span><br></pre></td></tr></table></figure>
+<h4 id="二、静态表格导出-excel"><a href="#二、静态表格导出-excel" class="headerlink" title="二、静态表格导出 excel"></a>二、静态表格导出 excel</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">第一：封装函数</span><br><span class="line"><span class="keyword">import</span> FileSaver <span class="keyword">from</span> <span class="string">&quot;file-saver&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> XLSX <span class="keyword">from</span> <span class="string">&quot;xlsx&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlToExcel = &#123;</span><br><span class="line">  <span class="function"><span class="title">getExcel</span>(<span class="params">dom, title = <span class="string">&quot;默认标题&quot;</span></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> excelTitle = title;</span><br><span class="line">    <span class="keyword">var</span> wb = XLSX.utils.table_to_book(<span class="built_in">document</span>.querySelector(dom));</span><br><span class="line">    <span class="comment">/* 获取二进制字符串作为输出 */</span></span><br><span class="line">    <span class="keyword">var</span> wbout = XLSX.write(wb, &#123;</span><br><span class="line">      bookType: <span class="string">&quot;xlsx&quot;</span>,</span><br><span class="line">      bookSST: <span class="literal">true</span>,</span><br><span class="line">      type: <span class="string">&quot;array&quot;</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      FileSaver.saveAs(</span><br><span class="line">        <span class="keyword">new</span> Blob([wbout], &#123; <span class="attr">type</span>: <span class="string">&quot;application/octet-stream&quot;</span> &#125;),</span><br><span class="line">        excelTitle + <span class="string">&quot;.xlsx&quot;</span></span><br><span class="line">      );</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">console</span> !== <span class="string">&quot;undefined&quot;</span>) <span class="built_in">console</span>.log(e, wbout);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> wbout;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> htmlToExcel;</span><br><span class="line"></span><br><span class="line">第二：定义点击事件</span><br><span class="line"><span class="keyword">const</span> exportExcel = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  htmlToExcel.getExcel(<span class="string">&quot;#selectTable&quot;</span>, <span class="string">&quot;导出的自定义标题&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">第三：绑定table表格</span><br><span class="line">&lt;Table</span><br><span class="line">  id=<span class="string">&quot;selectTable&quot;</span> <span class="comment">// 绑定id</span></span><br><span class="line">  bordered</span><br><span class="line">  columns=&#123;columns&#125;</span><br><span class="line">  dataSource=&#123;data&#125;</span><br><span class="line">&gt;&lt;/Table&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="三、fetch-请求"><a href="#三、fetch-请求" class="headerlink" title="三、fetch 请求"></a>三、fetch 请求</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getJson</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="string">&quot;https://api.github.com/users/ruanyf&quot;</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line">    <span class="built_in">console</span>.log(response.status);</span><br><span class="line">    <span class="built_in">console</span>.log(response.statusText);</span><br><span class="line">    <span class="built_in">console</span>.log(response.url);</span><br><span class="line">    <span class="built_in">console</span>.log(response.type);</span><br><span class="line">    <span class="built_in">console</span>.log(response.ok); <span class="comment">// 请求不成功</span></span><br><span class="line">    <span class="built_in">console</span>.log(response.headers);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> response.json();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> res = getJson();</span><br></pre></td></tr></table></figure>
+<h4 id="四、防抖节流"><a href="#四、防抖节流" class="headerlink" title="四、防抖节流"></a>四、防抖节流</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line">&lt;!-- 设置canRun作为是否执行的标志。每次触发点击事件，都判断canRun的值（<span class="literal">true</span>执行，<span class="literal">false</span>不执行）。</span><br><span class="line">    第一次应该执行，所以设置canRun初始值为<span class="literal">true</span>。当第一次执行后，设置canRun为<span class="literal">false</span>（防止下次执行），并设置计时器，以恢复canRun的值。 --&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;root&quot;</span>&gt;</span><br><span class="line">  &lt;button onclick=<span class="string">&quot;handleClick()&quot;</span>&gt;点击&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">let</span> canRun = <span class="literal">true</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">myThrottle</span>(<span class="params">callback, time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!canRun) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    canRun = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      callback();</span><br><span class="line">      canRun = <span class="literal">true</span>;</span><br><span class="line">    &#125;, time);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;2秒后输出点击结果&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    myThrottle(print, <span class="number">2000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 原理：timer作为定时器，每次触发点击事件，都先清一下定时器（之前未执行的print方法就不会再执行），</span><br><span class="line">    新的定时器在<span class="number">1</span>秒后执行方法，那么如果下次点击在<span class="number">1</span>秒内，这次赋值的定时器又会被清掉（搜索方法不会执行），</span><br><span class="line">    直到下次点击相对于这次drag间隔时间大于<span class="number">1</span>秒（定时器可能没那么准）再执行一次方法onresize。 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=<span class="string">&quot;root&quot;</span>&gt;</span><br><span class="line">  &lt;button onclick=<span class="string">&quot;handleDebounce()&quot;</span>&gt;点击&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">callback, time</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(callback, time);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;每次触发事件的两秒后才打印输出内容&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleDebounce</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    debounce(print, <span class="number">2000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="五、分批请求数据并合并，最后导出为-excel-表格"><a href="#五、分批请求数据并合并，最后导出为-excel-表格" class="headerlink" title="五、分批请求数据并合并，最后导出为 excel 表格"></a>五、分批请求数据并合并，最后导出为 excel 表格</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">第一步：在src目录下新建：vendor文件夹，放入Blod.js和Export2Excel.js文件</span><br><span class="line"></span><br><span class="line">第二步：在文件中：写入一下代码</span><br><span class="line"><span class="keyword">const</span> formatJson = <span class="function">(<span class="params">filterVal, jsonData</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> jsonData.map(<span class="function">(<span class="params">v</span>) =&gt;</span> filterVal.map(<span class="function">(<span class="params">j</span>) =&gt;</span> v[j]));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出表格（点击导出按钮的回调）</span></span><br><span class="line"><span class="keyword">const</span> handleExport = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> speed = <span class="built_in">Math</span>.ceil(total / <span class="number">200</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(speed);</span><br><span class="line">  <span class="keyword">let</span> resData = [];</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> dataAsync = <span class="function">(<span class="params">page</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> requestData = &#123;</span><br><span class="line">      companyId: userInfo &amp;&amp; userInfo.id,</span><br><span class="line">      startDate: moment(defaultDays[<span class="number">0</span>]).unix(),</span><br><span class="line">      endDate: moment(defaultDays[<span class="number">1</span>]).unix(),</span><br><span class="line">      currentPage: page,</span><br><span class="line">      pageSize: <span class="number">200</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (coachName) &#123;</span><br><span class="line">      requestData.searchValue = coachName; <span class="comment">// 动态传参</span></span><br><span class="line">      <span class="comment">// searchKey:</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> coachActiveDataApi(requestData);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> loopData = <span class="function">(<span class="params">fun, page</span>) =&gt;</span> &#123;</span><br><span class="line">    fun(page).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res, <span class="number">23333333</span>);</span><br><span class="line">      <span class="keyword">let</span> tempArr = [];</span><br><span class="line">      res.list &amp;&amp;</span><br><span class="line">        res.list.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">          tempArr.push(&#123;</span><br><span class="line">            coachName: item.cmder.nickName,</span><br><span class="line">            groupName: item.group.name,</span><br><span class="line">            onlineDuration: (item.onlineDuration / <span class="number">60</span>).toFixed(<span class="number">2</span>),</span><br><span class="line">            chatNumber: item.chatNumber,</span><br><span class="line">            replyTime: item.replyTime,</span><br><span class="line">            orderCompletionRate:</span><br><span class="line">              (item.orderCompletionRate * <span class="number">100</span>).toFixed(<span class="number">2</span>) + <span class="string">&quot;%&quot;</span>,</span><br><span class="line">            timestamp: moment(item.timestamp * <span class="number">1000</span>).format(<span class="string">&quot;YYYY-MM-DD&quot;</span>),</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">      x++;</span><br><span class="line">      resData = resData.concat(tempArr);</span><br><span class="line">      <span class="keyword">if</span> (x &lt;= speed) &#123;</span><br><span class="line">        loopData(dataAsync, x);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ！！！导入的Export2Excel.js, 根据自身项目的创建路径为准</span></span><br><span class="line">        <span class="keyword">const</span> &#123; export_json_to_excel &#125; = <span class="built_in">require</span>(<span class="string">&quot;../../vendor/Export2Excel&quot;</span>);</span><br><span class="line">        <span class="keyword">const</span> tHeader = [</span><br><span class="line">          <span class="string">&quot;教练名称&quot;</span>,</span><br><span class="line">          <span class="string">&quot;所属教练团&quot;</span>,</span><br><span class="line">          <span class="string">&quot;日期&quot;</span>,</span><br><span class="line">          <span class="string">&quot;在线时长&quot;</span>,</span><br><span class="line">          <span class="string">&quot;私聊人数&quot;</span>,</span><br><span class="line">          <span class="string">&quot;私聊响应时间&quot;</span>,</span><br><span class="line">          <span class="string">&quot;订单完成率&quot;</span>,</span><br><span class="line">        ]; <span class="comment">//表头名</span></span><br><span class="line">        <span class="keyword">const</span> filterVal = [</span><br><span class="line">          <span class="string">&quot;coachName&quot;</span>,</span><br><span class="line">          <span class="string">&quot;groupName&quot;</span>,</span><br><span class="line">          <span class="string">&quot;timestamp&quot;</span>,</span><br><span class="line">          <span class="string">&quot;onlineDuration&quot;</span>,</span><br><span class="line">          <span class="string">&quot;chatNumber&quot;</span>,</span><br><span class="line">          <span class="string">&quot;replyTime&quot;</span>,</span><br><span class="line">          <span class="string">&quot;orderCompletionRate&quot;</span>,</span><br><span class="line">        ]; <span class="comment">//表头字段</span></span><br><span class="line">        <span class="keyword">const</span> list = resData; <span class="comment">//表格内容</span></span><br><span class="line">        <span class="comment">//formatJson方法，用于格式转换直接复制</span></span><br><span class="line">        <span class="keyword">const</span> data = formatJson(filterVal, list);</span><br><span class="line">        export_json_to_excel(tHeader, data, <span class="string">&quot;教练活跃数据&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  loopData(dataAsync, x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>张周文</li>
+    <li><strong>本文链接：</strong><a href="http://dachuizi-6.github.io/2021/01/30/01%E3%80%81%E5%B8%B8%E7%94%A8js/index.html" title="http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;01%E3%80%81%E5%B8%B8%E7%94%A8js&#x2F;index.html">http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;01%E3%80%81%E5%B8%B8%E7%94%A8js&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E5%BA%93/" rel="tag">js库</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/01/30/04%E3%80%81css%E7%AC%94%E8%AE%B0/"><i class="iconfont iconleft"></i>css笔记</a>
+    <a href="/2021/01/30/02%E3%80%81%E5%87%BD%E6%95%B0/">ES6函数<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/izhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

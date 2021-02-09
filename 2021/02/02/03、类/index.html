@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES5和ES6之类 - 张周文</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="①、ES5 类的写法12345678910111213...">
+  <meta name="author" content="张周文">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/bg.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">ES5和ES6之类</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">ES5和ES6之类</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>二月 02, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4428</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h3 id="①、ES5-类的写法"><a href="#①、ES5-类的写法" class="headerlink" title="①、ES5 类的写法"></a>①、ES5 类的写法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">es5:构造函数</span><br><span class="line"><span class="keyword">let</span> Animal = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.type = type</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Animal(<span class="string">&#x27;dog&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> monkey = <span class="keyword">new</span> Animal(<span class="string">&#x27;monkey&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的写法不改变继承的原则</span></span><br><span class="line"><span class="comment">// 这里变化，所有的实例对象调用的该方法也会跟着变</span></span><br><span class="line">monkey.constructor.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dog.eat()</span><br><span class="line">monkey.eat()</span><br><span class="line"></span><br><span class="line">注意：monkey.constructor构造器指的就是构造函数本身</span><br><span class="line">总结：独有的东西，放构造函数里边</span><br><span class="line">      共有的东西，放构造函数的原型上面</span><br></pre></td></tr></table></figure>
+<h3 id="②、ES6-类的写法"><a href="#②、ES6-类的写法" class="headerlink" title="②、ES6 类的写法"></a>②、ES6 类的写法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ES6:类</span><br><span class="line">语法趟：语法不一样，但最后的本质是一样的</span><br><span class="line"></span><br><span class="line">es6的<span class="class"><span class="keyword">class</span>是<span class="title">es5</span>构造函数的语法糖</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.type = type</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">总结：独有的放<span class="title">constructor</span>里面</span><br><span class="line">      共有的放<span class="title">constructor</span>外面</span><br><span class="line"></span><br><span class="line"><span class="title">let</span> <span class="title">dog</span> = <span class="title">new</span> <span class="title">Animal</span>(<span class="params"><span class="string">&#x27;dog&#x27;</span></span>)</span><br><span class="line"><span class="title">let</span> <span class="title">monkey</span> = <span class="title">new</span> <span class="title">Animal</span>(<span class="params"><span class="string">&#x27;monkey&#x27;</span></span>)</span><br><span class="line"></span><br><span class="line"><span class="title">dog</span>.<span class="title">eat</span>(<span class="params"></span>) = <span class="title">monkey</span>.<span class="title">eat</span>(<span class="params"></span>)</span><br><span class="line"></span><br><span class="line"><span class="title">console</span>.<span class="title">log</span>(<span class="params"><span class="keyword">typeof</span> Animal</span>) // <span class="title">function</span></span><br></pre></td></tr></table></figure>
+<h3 id="③、ES6-中属性保护"><a href="#③、ES6-中属性保护" class="headerlink" title="③、ES6 中属性保护"></a>③、ES6 中属性保护</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ES6：可以把属性定义在类的最顶层，但是前面要加set或get，此时属性写法是一个函数</span><br><span class="line"></span><br><span class="line">几个概念：</span><br><span class="line">类的最顶层：<span class="class"><span class="keyword">class</span>里面，且没有在<span class="title">constructor</span>里面</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">calss</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.type = type</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// age可看成是一个出入口、不要看做实例对象的属性</span></span><br><span class="line">  <span class="keyword">get</span> <span class="title">age</span>()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span> <span class="title">age</span>(<span class="params">val</span>)&#123;</span><br><span class="line">    <span class="comment">// this.age = val // 不能这样写，这样写死循环</span></span><br><span class="line">    <span class="built_in">this</span>.realAge = val</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Animal(<span class="string">&#x27;dog&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(dog.age) <span class="comment">// 4</span></span><br><span class="line">dog.age = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(dog.realAge)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">set和get做到了你在读写的时候，可以灵活的改变返回值，但是返回值跟出入口的名字不要一样</span><br><span class="line"></span><br><span class="line">set可以看做是拦截器，让外界在一定条件下访问私有属性，可以不给你访问</span><br><span class="line">现在<span class="title">constructor</span>不支持私有属性，我们只能采用闭包的方式来做私有属性，所以才把<span class="title">_age</span>这个变量放在外面</span><br><span class="line">实例对象访问这个变量<span class="title">_age</span>是访问不到的，因为变量不在你这个实例对象身上，但是在<span class="title">get</span>和<span class="title">set</span>的共同的顶层作用域上，可以访问</span><br><span class="line">这样就通过闭包实现了私有属性的保护，因为我们现在就是想给这个类增加一个年龄私有属性，只不过这个属性叫<span class="title">_age</span>，不叫<span class="title">age</span>，</span><br><span class="line"><span class="title">age</span>是暴露给实例对象操作的出入口，真是存储年龄的变量不叫<span class="title">age</span>，这个<span class="title">age</span>只是用来看的，不是真正存储的地方</span><br><span class="line"></span><br><span class="line"><span class="title">let</span> <span class="title">_age</span> = 4</span><br><span class="line"><span class="title">calss</span> <span class="title">Animal</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.type = type</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// age可看成是一个出入口、不要看做实例对象的属性</span></span><br><span class="line">  <span class="keyword">get</span> <span class="title">age</span>()&#123;</span><br><span class="line">    <span class="keyword">return</span> _age</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span> <span class="title">age</span>(<span class="params">val</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(val&lt;<span class="number">8</span> &amp;&amp; val&gt;<span class="number">4</span>)&#123;</span><br><span class="line">      _age = val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Animal(<span class="string">&#x27;dog&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(dog.age) <span class="comment">// 4</span></span><br><span class="line">dog.age = <span class="number">8</span></span><br><span class="line"><span class="built_in">console</span>.log(dog.age) <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(dog._age) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="④、类的静态方法"><a href="#④、类的静态方法" class="headerlink" title="④、类的静态方法"></a>④、类的静态方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">静态方法：只能类本身访问，实例对象不能访问</span><br><span class="line"></span><br><span class="line">ES5:直接写在构造函数上面</span><br><span class="line"><span class="keyword">let</span> Animal = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.type = type</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.walk = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  consol.log(<span class="string">&#x27;i am walking&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  Animal.walk()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ES6:<span class="keyword">static</span>关键字声明</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.type = type</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 引用父类构造方法</span></span><br><span class="line">    Animal.walk()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 静态方法</span></span><br><span class="line">  <span class="keyword">static</span> <span class="function"><span class="title">walk</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am walking&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Animal(<span class="string">&#x27;dog&#x27;</span>)</span><br><span class="line">dog.eat() <span class="comment">// i am walk i am eat food</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>区分好类的实例方法和静态方法<br>使用场景：如果你的方法依赖于对象的类的某个属性或方法，例如刚刚的类有 eat 方法，我想在 eat 里面去访问实例对象的属性或方法的时候，这个 eat 就必须定义为类的实例对象的方法</p>
+</blockquote>
+<p>我这个方法内部要引用实例对象的一些信息，则定义为实例对象的方法</p>
+<p>类的静态方法拿不到当前的实例对象</p>
+<h3 id="⑤、类的继承"><a href="#⑤、类的继承" class="headerlink" title="⑤、类的继承"></a>⑤、类的继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">ES5: 继承;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Animal = <span class="function"><span class="keyword">function</span> (<span class="params">type</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.type = type;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Animal.walk = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  consol.log(<span class="string">&quot;i am walking&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  Animal.walk();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;i am eat food&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dog类</span></span><br><span class="line"><span class="keyword">let</span> Dog = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 初始化父类的构造函数来实现继承父类的部分私有属性</span></span><br><span class="line">  Animal.call(<span class="built_in">this</span>, <span class="string">&quot;dog&quot;</span>); <span class="comment">// 在new Dog的时候改变父类的this指向</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 新增Dog类的独有属性和方法</span></span><br><span class="line">  <span class="built_in">this</span>.run = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;i can run&quot;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 继承父类在原型链上共有的属性和方法：只需Dog的原型指向Animal的原型即可</span></span><br><span class="line">Dog.prototype = Animal.prototype;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Dog(<span class="string">&quot;dog&quot;</span>);</span><br><span class="line">dog.eat(); <span class="comment">//调用父类的方法</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">ES6继承：</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.type = type</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 引用父类构造方法</span></span><br><span class="line">    Animal.walk()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am eat food&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 静态方法</span></span><br><span class="line">  <span class="keyword">static</span> <span class="function"><span class="title">walk</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;i am walking&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 如果Dog类没有自己的私有属性，则constructor构造函数可以不写，有默认值，已经实现继承父类的所有属性和方法了</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果有自己的属性，则这样写</span></span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">super</span>(type)</span><br><span class="line">    <span class="built_in">this</span>.age = <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 类的私有方法跟以前定义一样</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> Dog(<span class="string">&#x27;dog&#x27;</span>)</span><br><span class="line">dog.eat()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：class<br>声明（es6 是 es5 的语法糖）、属性(get 和 set 的加持)、方法（实例对象的方法，类的静态方法、写法，使用场景）、继承（面向对象的重要概念）</p>
+</blockquote>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>张周文</li>
+    <li><strong>本文链接：</strong><a href="http://dachuizi-6.github.io/2021/02/02/03%E3%80%81%E7%B1%BB/index.html" title="http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;02&#x2F;02&#x2F;03%E3%80%81%E7%B1%BB&#x2F;index.html">http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;02&#x2F;02&#x2F;03%E3%80%81%E7%B1%BB&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2021/02/02/05%E3%80%81npm%E7%9B%B8%E5%85%B3/"><i class="iconfont iconleft"></i>npm相关</a>
+    <a href="/2021/02/02/09%E3%80%81react-hook/">React的新特性之：hooks<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0%E3%80%81ES5-%E7%B1%BB%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-text">①、ES5 类的写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1%E3%80%81ES6-%E7%B1%BB%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-text">②、ES6 类的写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2%E3%80%81ES6-%E4%B8%AD%E5%B1%9E%E6%80%A7%E4%BF%9D%E6%8A%A4"><span class="toc-text">③、ES6 中属性保护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A3%E3%80%81%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">④、类的静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A4%E3%80%81%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-text">⑤、类的继承</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/izhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

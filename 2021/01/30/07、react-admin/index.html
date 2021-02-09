@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>手把手react后台管理开发 - 张周文</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第一节：create-react-app 脚手架安装、...">
+  <meta name="author" content="张周文">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/bg.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">手把手react后台管理开发</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">手把手react后台管理开发</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 30, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>5430</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h4 id="第一节：create-react-app-脚手架安装、git-仓库建立"><a href="#第一节：create-react-app-脚手架安装、git-仓库建立" class="headerlink" title="第一节：create-react-app 脚手架安装、git 仓库建立"></a>第一节：create-react-app 脚手架安装、git 仓库建立</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">起项目，暴露webpack</span><br></pre></td></tr></table></figure>
+<h4 id="第二节：路由模式（react-router-dom）、node-sass-配置"><a href="#第二节：路由模式（react-router-dom）、node-sass-配置" class="headerlink" title="第二节：路由模式（react-router-dom）、node-sass 配置"></a>第二节：路由模式（react-router-dom）、node-sass 配置</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  loader: <span class="built_in">require</span>.resolve(<span class="string">&quot;file-loader&quot;</span>),</span><br><span class="line">  <span class="comment">// Exclude `js` files to keep &quot;css&quot; loader working as it injects</span></span><br><span class="line">  <span class="comment">// its runtime that would otherwise be processed through &quot;file&quot; loader.</span></span><br><span class="line">  <span class="comment">// Also exclude `html` and `json` extensions so they get processed</span></span><br><span class="line">  <span class="comment">// by webpacks internal loaders.</span></span><br><span class="line">  exclude: [<span class="regexp">/\.(js|mjs|jsx|ts|tsx)$/</span>, <span class="regexp">/\.html$/</span>, <span class="regexp">/\.json$/</span>],</span><br><span class="line">  options: &#123;</span><br><span class="line">    name: <span class="string">&quot;static/media/[name].[hash:8].[ext]&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">下面增加：</span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">  loaders: [<span class="string">&quot;style-loader&quot;</span>, <span class="string">&quot;css-loader&quot;</span>, <span class="string">&quot;sass-loader&quot;</span>],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="第三节：全局配置-Sass-变量、重置浏览器样式、antd-按需加载"><a href="#第三节：全局配置-Sass-变量、重置浏览器样式、antd-按需加载" class="headerlink" title="第三节：全局配置 Sass 变量、重置浏览器样式、antd 按需加载"></a>第三节：全局配置 Sass 变量、重置浏览器样式、antd 按需加载</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">项目中所有的scss文件均可使用变量和方法，无需再次单独引入</span><br><span class="line">安装依赖</span><br><span class="line">npm i sass-resources-loader -D</span><br><span class="line"></span><br><span class="line"> &#123;</span><br><span class="line">              test: sassRegex,</span><br><span class="line">              exclude: sassModuleRegex,</span><br><span class="line">              use: getStyleLoaders(</span><br><span class="line">                &#123;</span><br><span class="line">                  importLoaders: <span class="number">3</span>,</span><br><span class="line">                  sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">&#x27;sass-loader&#x27;</span></span><br><span class="line">              ).concat(&#123;</span><br><span class="line">                loader: <span class="string">&#x27;sass-resources-loader&#x27;</span>,</span><br><span class="line">                options: &#123;</span><br><span class="line">                    resources: [</span><br><span class="line">                        <span class="comment">// 这里按照你的文件路径填写</span></span><br><span class="line">                        path.resolve(__dirname, <span class="string">&#x27;./../src/styles/main.scss&#x27;</span>)</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;),</span><br><span class="line">              sideEffects: <span class="literal">true</span>,</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">引入normal.scss,并在main.scss引入</span><br><span class="line"></span><br><span class="line">Antd按需加载</span><br><span class="line">npm install babel-plugin-<span class="keyword">import</span> --save-dev</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">  [</span><br><span class="line">    <span class="built_in">require</span>.resolve(<span class="string">&quot;babel-plugin-named-asset-import&quot;</span>),</span><br><span class="line">    &#123;</span><br><span class="line">      loaderMap: &#123;</span><br><span class="line">        svg: &#123;</span><br><span class="line">          ReactComponent:</span><br><span class="line">            <span class="string">&quot;@svgr/webpack?-svgo,+titleProp,+ref![path]&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">  [<span class="string">&quot;import&quot;</span>, &#123; <span class="attr">libraryName</span>: <span class="string">&quot;antd&quot;</span>, <span class="attr">style</span>: <span class="string">&quot;css&quot;</span> &#125;], <span class="comment">// antd按需加载</span></span><br><span class="line">  isEnvDevelopment &amp;&amp;</span><br><span class="line">    shouldUseReactRefresh &amp;&amp;</span><br><span class="line">    <span class="built_in">require</span>.resolve(<span class="string">&quot;react-refresh/babel&quot;</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="第四节：登录界面制作，组件化切换登录和注册页面、antd-表单使用-自定义验证"><a href="#第四节：登录界面制作，组件化切换登录和注册页面、antd-表单使用-自定义验证" class="headerlink" title="第四节：登录界面制作，组件化切换登录和注册页面、antd 表单使用(自定义验证)"></a>第四节：登录界面制作，组件化切换登录和注册页面、antd 表单使用(自定义验证)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">antd表单自定义验证：</span><br><span class="line">&lt;Form.Item</span><br><span class="line">  name=<span class="string">&quot;password&quot;</span></span><br><span class="line">  rules=&#123;</span><br><span class="line">    [</span><br><span class="line">      &#123;<span class="attr">require</span>:<span class="literal">true</span>,<span class="attr">message</span>:<span class="string">&#x27;&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">min</span>:<span class="number">6</span>,<span class="attr">message</span>:<span class="string">&#x27;&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">max</span>:<span class="number">20</span>,<span class="attr">message</span>:<span class="string">&quot;&quot;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">pattern</span>:<span class="regexp">/^[0-9]*$/</span>,message:<span class="string">&#x27;&#x27;</span>&#125;</span><br><span class="line">      &#123;<span class="attr">pattern</span>:reg_password,<span class="attr">message</span>:<span class="string">&#x27;&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 自定义</span></span><br><span class="line">      (&#123; getFieldValue &#125;) =&gt; (&#123;</span><br><span class="line">          <span class="function"><span class="title">validator</span>(<span class="params">role, value</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">if</span>(value !== getFieldValue(<span class="string">&quot;password&quot;</span>))&#123;</span><br><span class="line">                  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">&quot;两次密码不一致&quot;</span>)</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 验证码</span></span><br><span class="line">      &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&quot;请输入长度为6位的字符&quot;</span>, <span class="attr">len</span>: <span class="number">6</span> &#125;,</span><br><span class="line"></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line">工程化：</span><br><span class="line"><span class="comment">// 正则</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> reg_password = <span class="regexp">/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;6,20&#125;$/</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="第五节-axios-拦截器、项目环境、环境变量"><a href="#第五节-axios-拦截器、项目环境、环境变量" class="headerlink" title="第五节:axios 拦截器、项目环境、环境变量"></a>第五节:axios 拦截器、项目环境、环境变量</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跨域配置</span></span><br><span class="line">npm i http-proxy-middleware</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、新建文件</span></span><br><span class="line"><span class="comment">// src/目录新建 setupProxy.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; createProxyMiddleware &#125; = <span class="built_in">require</span>(<span class="string">&quot;http-proxy-middleware&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">    app.use(createProxyMiddleware(<span class="string">&quot;/manage&quot;</span>, &#123;</span><br><span class="line">        target: <span class="string">&quot;http://admintest.happymmall.com&quot;</span> , <span class="comment">//配置你要请求的服务器地址</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">        <span class="string">&quot;^/devApi&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;))</span><br><span class="line"></span><br><span class="line">    * <span class="number">1</span>、匹配到devApi，开始做代理  http:<span class="comment">//www.web-jshtml.cn/api/react</span></span><br><span class="line">    * <span class="number">2</span>、/devApi/login/ =&gt; <span class="regexp">/login/</span></span><br><span class="line">    * <span class="number">3</span>、替换之后的地址：http:<span class="comment">//www.web-jshtml.cn/api/react/login/</span></span><br><span class="line"></span><br><span class="line">    app.use(proxy(<span class="string">&quot;/manage/api&quot;</span>, &#123;</span><br><span class="line">        target: <span class="string">&quot;http://admintest.happymmall.com:7000&quot;</span> ,</span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    &#125;))</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// axios全局配置：utils---&gt;request.js</span></span><br><span class="line">创建实例》》》请求拦截》》》响应拦截</span><br><span class="line">baseUrl可以是：<span class="string">&#x27;/devApi&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// api管理</span></span><br><span class="line">api---&gt;<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> service.request(&#123;</span><br><span class="line">    url:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    method:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    data, <span class="comment">//post请求</span></span><br><span class="line">    <span class="comment">// params:data // get请求</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 环境变量：</span></span><br><span class="line">create-react-app 创建的项目有内置的环境变量 NODE_ENV, 可通过 process.env.NODE_ENV 读取变量。</span><br><span class="line"></span><br><span class="line">NODE_ENV：默认的三个值</span><br><span class="line">开发：development - npm start</span><br><span class="line">测试：test - npm run test</span><br><span class="line">生产：production - npm run build</span><br><span class="line"></span><br><span class="line">在src目录下新建三个文件：</span><br><span class="line">.env.development</span><br><span class="line">  REACT_APP_API = <span class="string">&quot;/devApi&quot;</span>   开发环境读这个(npm start的时候)</span><br><span class="line">  REACT_APP_BASE_URL = <span class="string">&quot;http://www.web-jshtml.cn/api/react&quot;</span></span><br><span class="line">.env.production</span><br><span class="line">  REACT_APP_API = <span class="string">&quot;&quot;</span>   生产环境读取这个</span><br><span class="line">.env.test</span><br><span class="line">  REACT_APP_API = <span class="string">&quot;&quot;</span></span><br><span class="line">三个文件里面的变量命名必须是：<span class="string">&quot;REACT_APP_&quot;</span>开头</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseUrl:process.env.REACT_APP_API,</span><br><span class="line">  timeout:<span class="number">5000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">区分production（生产与测试）：</span><br><span class="line">项目打包配置环境变量</span><br><span class="line"></span><br><span class="line">依赖： npm install -g dotenv-cli</span><br><span class="line"><span class="string">&quot;build:dev&quot;</span>: <span class="string">&quot;dotenv -e  .env.development  react-app-rewired build&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:pro&quot;</span>: <span class="string">&quot;dotenv -e .env.production react-app-rewired build&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:test&quot;</span>: <span class="string">&quot;dotenv -e .env.test react-app-rewired build&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用环境变量的跨域</span></span><br><span class="line">app.use(createProxyMiddleware([process.env.REACT_APP_API], &#123;</span><br><span class="line">    target: process.env.REACT_APP_BASE_URL, <span class="comment">//配置你要请求的服务器地址</span></span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">        [<span class="string">`^<span class="subst">$&#123;process.env.REACT_APP_API&#125;</span>`</span>] : <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>张周文</li>
+    <li><strong>本文链接：</strong><a href="http://dachuizi-6.github.io/2021/01/30/07%E3%80%81react-admin/index.html" title="http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;07%E3%80%81react-admin&#x2F;index.html">http:&#x2F;&#x2F;dachuizi-6.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;07%E3%80%81react-admin&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react%E9%A1%B9%E7%9B%AE/" rel="tag">react项目</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/01/30/02%E3%80%81%E5%87%BD%E6%95%B0/"><i class="iconfont iconleft"></i>ES6函数</a>
+    <a href="/2021/01/30/10%E3%80%81react%E4%B9%8B%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/">react富文本编辑器<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/izhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Main - <a target="_blank" href="https://github.com/Dachuizi-6">大帅比</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
